@@ -1,0 +1,15 @@
+meta:
+  environment: jvm
+  toolchain:
+    name: maven
+    version: "17"
+build:
+  image: null
+  args: spring-boot:repackage -Pnative
+  artifacts:
+    target/*.jar: /
+run:
+  image: null
+  jarName: NutritionTelegramBot-0.0.1.jar
+  persistenceMount: /data
+  containerPort: "8080"
